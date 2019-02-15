@@ -1,9 +1,16 @@
 <template>
     <div id="login">
-        <input v-model="login" type="text">
-        <input v-model="password" type="password">
+        <form id="signin_form">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Sign in</h1>
+                    <input label="Login" v-model="login" type="text" placeholder="Login" />
+                    <input label="Password" v-model="password" type="password" placeholder="Password" />
+                </div>
+            </div>
+        </form>
+        <button @click="cancel">Cancel</button>
         <button @click="signin">Enter</button>
-        <br>
     </div>
 </template>
 
@@ -30,11 +37,17 @@
 
 
                 });
+            },
+            cancel() {
+                this.$router.push({name: 'home'})
             }
         }
     }
 </script>
 
 <style scoped>
-
+    #signin_form {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
 </style>

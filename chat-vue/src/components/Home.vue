@@ -1,6 +1,6 @@
 <template>
     <div id="home">
-        <h1>Чат на Vue js</h1>
+
         <button v-if="!auth" @click="signin">Sign in</button>
         <button v-else @click="logout">Sign out</button>
         <room v-if="auth"></room>
@@ -12,12 +12,12 @@
 
     export default {
         name: "Home",
-        components:{
+        components: {
             Room
         },
-        computed:{
-            auth(){
-                if(sessionStorage.getItem('auth_token')){
+        computed: {
+            auth() {
+                if (sessionStorage.getItem('auth_token')) {
                     return true
                 }
             }
@@ -26,7 +26,7 @@
             signin() {
                 this.$router.push({name: 'login'})
             },
-            logout(){
+            logout() {
                 sessionStorage.removeItem('auth_token')
                 window.location = '/'
             }
@@ -35,5 +35,8 @@
 </script>
 
 <style scoped>
-
+    body {
+        padding: 0;
+        margin: 0;
+    }
 </style>
